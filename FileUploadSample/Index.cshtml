@@ -45,7 +45,9 @@
             border:none;
             color:white;
         }
-        #file:hover ~ #btn-upload {
+        #file:hover ~ #btn-upload,
+        #file:focus ~ #btn-upload 
+        {
             background-color:#2465cf;
         }
         img {
@@ -58,7 +60,7 @@
     <form method="post" enctype="multipart/form-data">
         <div id="file-field-window">
             <input type="file" name="file" id="file" value="" />
-            <input type="submit" name="btn-upload" id="btn-upload" value="Upload image..." />
+            <input type="submit" name="btn-upload" id="btn-upload" value="Upload image..." tabIndex="-1" />
         </div>
     </form>
 
