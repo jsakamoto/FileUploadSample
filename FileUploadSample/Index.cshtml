@@ -21,9 +21,11 @@
         <div>
             <input type="file" name="file" id="file" value="" />
         </div>
+        <!--
         <div>
             <input type="submit" name="btn-upload" id="btn-upload" value="Upload image..." />
         </div>
+        -->
     </form>
 
     <div>
@@ -33,5 +35,12 @@
         }
     </div>
     <script src="Scripts/jquery-1.7.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#file").change(function () {
+                $(this).closest("form").submit();
+            });
+        });
+    </script>
 </body>
 </html>
