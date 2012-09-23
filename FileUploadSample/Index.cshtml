@@ -15,17 +15,20 @@
 <html>
 <head>
     <title></title>
+    <style>
+        #file {
+            display:none;
+        }
+    </style>
 </head>
 <body>
     <form method="post" enctype="multipart/form-data">
         <div>
             <input type="file" name="file" id="file" value="" />
         </div>
-        <!--
         <div>
             <input type="submit" name="btn-upload" id="btn-upload" value="Upload image..." />
         </div>
-        -->
     </form>
 
     <div>
@@ -39,6 +42,10 @@
         $(function () {
             $("#file").change(function () {
                 $(this).closest("form").submit();
+            });
+            $("#btn-upload").click(function () {
+                $("#file").click();
+                return false;
             });
         });
     </script>
