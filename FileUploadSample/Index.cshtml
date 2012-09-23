@@ -15,17 +15,44 @@
 <html>
 <head>
     <title></title>
+    <style>
+        * {
+            font-size:100%;
+        }
+        body {
+            font-size:80%;
+        }
+        #file {
+            height: 300px;
+            font-size: 300px;
+            right: 0;
+            top: 0;
+            position: absolute;
+            opacity: 0.01;
+            cursor:pointer;
+        }
+        #file-field-window {
+            overflow:hidden;
+            position:relative;
+        }
+        #file-field-window,
+        #btn-upload {
+            width:10em;
+            height:3em;
+        }
+        #btn-upload {
+            background-color:#094ab2;
+            border:none;
+            color:white;
+        }
+    </style>
 </head>
 <body>
     <form method="post" enctype="multipart/form-data">
-        <div>
+        <div id="file-field-window">
             <input type="file" name="file" id="file" value="" />
-        </div>
-        <!--
-        <div>
             <input type="submit" name="btn-upload" id="btn-upload" value="Upload image..." />
         </div>
-        -->
     </form>
 
     <div>
