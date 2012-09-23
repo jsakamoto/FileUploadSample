@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+@{
+    var imgsrcuri = default(string);
+    if (IsPost) 
+    {
+        var file = Request.Files["file"];
+        if (file.ContentLength>0)
+        {
+            var buff = new byte[file.ContentLength];
+            file.InputStream.Read(buff, 0, buff.Length);
+            imgsrcuri = string.Format("data:{0};base64,{1}", file.ContentType, Convert.ToBase64String(buff));
+        }
+    }
+}
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <input type="file" name="file" id="file" value="" />
+        </div>
+        <div>
+            <input type="submit" name="btn-upload" id="btn-upload" value="Upload image..." />
+        </div>
+    </form>
+
+    <div>
+        @if (imgsrcuri != null)
+        {
+            <img src="@imgsrcuri" />
+        }
+    </div>
+    <script src="Scripts/jquery-1.7.1.min.js"></script>
+</body>
+</html>
